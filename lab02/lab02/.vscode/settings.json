@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdbool.h": "c",
+        "sort_helpers.h": "c",
+        "assert.h": "c"
+    }
+}
