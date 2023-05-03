@@ -59,8 +59,12 @@ void array_from_file(WeatherTable array, const char *filepath) {
         }
         Weather weather = weather_from_file(file);          //lee la medición del clima desde la línea del archivo
 
-        array[k_year-FST_YEAR][k_month-1][k_day-1]=weather;      //asigno en la matriz, esos valores    
+        array[k_year-FST_YEAR][k_month-1][k_day-1]= weather;      //asigno en la matriz, esos valores    
         
     }
     fclose(file);
 }
+
+
+
+
