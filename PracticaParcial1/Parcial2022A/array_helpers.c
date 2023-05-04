@@ -34,7 +34,7 @@ void array_dump(LayoverTable a) {
 unsigned int passengers_amount_in_airport (LayoverTable a, unsigned int h) {
   unsigned int wait_passegers=0;
   for (unsigned int i=0; i< h; i++){
-    wait_passegers += a[i][arrival].passengers_amount - a[i][arrival].passengers_amount;
+    wait_passegers += a[i][arrival].passengers_amount - a[i][departure].passengers_amount;
   }
   wait_passegers+= a[h-1][arrival].passengers_amount;
   return wait_passegers;
