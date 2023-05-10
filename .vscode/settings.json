@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "pair.h": "c",
+        "assert.h": "c"
+    }
+}

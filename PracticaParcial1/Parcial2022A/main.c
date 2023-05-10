@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
     printf("\n");
     unsigned int c= passengers_amount_in_airport(array,10);
 
-    printf("\nAmount of passengers at %u:00 : %u\n", 10,c);
+    printf("\nAmount of passengers at %u:00 : %u\n", 10-1,c);
 
     return (EXIT_SUCCESS);
 }
