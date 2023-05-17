@@ -31,21 +31,22 @@ list addl (list l, list_elem e){
     return l;
 }
 
-list destroy (list l){
+list destroy(list l){
     list kill;
-    while (!is_empty(l)){       //itero hasta el final
-        kill=l;
-        l=kill->next;
+    while (l!=NULL){       //itero hasta el final
+        kill = l;
+        l = kill -> next;
         free(kill);             //elimino todos los nodos
     }
     free(l);
+    l=NULL;
     return l;
 }
 
 
 
 bool is_empty(list l){
-    return l==NULL;
+    return l == NULL;
 }
 
 list_elem head(list l){
@@ -95,20 +96,25 @@ list_elem length (list l){
 
 
 list concat (list l, list l1){
-    list aux1;
-    list aux=l;
-    while (aux->next!=NULL){        //itero hasta el final de "l"
-        aux=aux->next;
+    list aux1=NULL;
+    if(l==NULL){
+        l=l1;
     }
-    aux1=l1;
-    while (aux1!=NULL){             //itero hasta el final de "l1"
-        list new= malloc (sizeof(struct s_list));   //voy creando nodos a medida que tengo un nuevo elemento de "l1"
-        new->elem=aux1->elem;
-        new->next=NULL;
-        aux=new;
-        aux1=aux1->next;
-    }
+    else{
+        list aux=l;
+        while (aux->next!=NULL){        //itero hasta el final de "l"
+            aux=aux->next;
+        }
+        aux1=l1;
 
+        while (aux1!=NULL){             //itero hasta el final de "l1"
+            list new= malloc (sizeof(struct s_list));   //voy creando nodos a medida que tengo un nuevo elemento de "l1"
+            new->elem=aux1->elem;
+            new->next=NULL;
+            aux=new;
+            aux1=aux1->next;
+        }
+    }
     return l;
 }
 

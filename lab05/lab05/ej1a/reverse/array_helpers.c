@@ -3,22 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-void array_dump(int a[], size_t length) {
-    fprintf(stdout, "length: %lu\n", length);
-    fprintf(stdout, "[ ");
-    for (size_t i = 0u; i < length; ++i) {
+void array_dump(int a[], unsigned int length) {
+    fprintf(stdout, "[");
+    for (unsigned int i = 0u; i < length; ++i) {
         fprintf(stdout, "%d", a[i]);
         if (i < length - 1) {
             fprintf(stdout, ", ");
+        } else {
+            fprintf(stdout, "]\n");
         }
     }
-    fprintf(stdout, "]\n");
 }
 
 
-int * array_from_file(const char *filepath, size_t *length) {
+unsigned int array_from_file(int array[], unsigned int max_size, const char *filepath) {
     FILE *file = NULL;
     file = fopen(filepath, "r");
     if (file == NULL) {
@@ -33,14 +31,8 @@ int * array_from_file(const char *filepath, size_t *length) {
         fprintf(stderr, "Invalid array.\n");
         exit(EXIT_FAILURE);
     }
-    int *array=NULL;
-    
-    array= malloc (sizeof(int)*size);    //reserve memory for array
-
-    *length=size;                   //change the lenght
-    
-    if (size > 0 && array == NULL) {
-        fprintf(stderr, "Not enough memory\n");
+    if (size > max_size) {
+        fprintf(stderr, "Allowed size is %d.\n", max_size);
         exit(EXIT_FAILURE);
     }
     while (i < size) {
@@ -52,6 +44,5 @@ int * array_from_file(const char *filepath, size_t *length) {
        ++i;
     }
     fclose(file);
-    return array;
+    return (size);
 }
-

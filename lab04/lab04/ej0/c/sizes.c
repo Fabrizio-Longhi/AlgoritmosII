@@ -25,8 +25,7 @@ int main(void) {
 }
 
 
-//La suma de los miembros, no coinciden con la estructura en general, ya que la estructura tiene varios bytes de mas
-//para almacenar justamente la estructura en si.
+//La suma de los miembros no coinciden con la estructura en general
 
 
 //No depende del nombre que contiene.
