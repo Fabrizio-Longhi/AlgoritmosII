@@ -24,7 +24,7 @@ stack stack_empty (){
 }
 
 stack stack_push(stack s, stack_elem e){
-    unsigned int cap_aux=0;
+    unsigned int cap_aux=s->capacity;
 
     if (s->size==0){                                    //if size is equal a zero
         cap_aux=1;                                      //My new capacity es one, I need this capacity

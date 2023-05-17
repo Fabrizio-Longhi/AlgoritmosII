@@ -165,4 +165,4 @@ static void print(stack source, stack aux, stack target,
 
 //Con ej-1-a) anda perfecto
 //Con ej-2-b) anda perfecto
-//Con ej-2 anda bien pero tiene varios errores en contexto (vienen del archivo stack.c PREGUNTAR)
+//Con ej-2 anda perfecto
