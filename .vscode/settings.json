@@ -2,6 +2,7 @@
     "files.associations": {
         "pair.h": "c",
         "assert.h": "c",
-        "stack.h": "c"
+        "stack.h": "c",
+        "stdio.h": "c"
     }
 }
