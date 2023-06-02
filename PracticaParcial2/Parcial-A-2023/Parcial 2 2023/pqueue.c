@@ -52,7 +52,7 @@ static struct s_node *create_node(pqueue_elem e,
 
 static struct s_node *destroy_node(struct s_node *node){
     assert(node != NULL);
-    //node->next = NULL;
+    node->next = NULL;
     free (node);
     node = NULL;
 
@@ -61,9 +61,31 @@ static struct s_node *destroy_node(struct s_node *node){
 }
 
 static bool invrep(pqueue q){
+    bool b = true;
+    unsigned int size_aux = 0;
+    struct s_node *count = q->front;
+    struct s_node *aux = NULL;
 
+    while (count != NULL){
+        ++size_aux;
+        count = count->next;
+    }
 
-    return q!=NULL;
+    if (q->size == 0 ){
+        b = true;
+    }
+    else if (q->size == 1){
+        b = true;
+    }
+    else{
+        aux = q->front;
+        
+        while (aux->next != NULL && b){
+            b = b && aux->priority >= aux->next->priority;
+            aux = aux->next;
+        }
+    }
+    return q!=NULL && b && size_aux == q->size;
 }
 
 pqueue pqueue_empty(void){
